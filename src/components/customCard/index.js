@@ -1,12 +1,30 @@
-// import React, { useEffect, useState } from "react";
-
+import { useState, useEffect } from "react";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import moment from "moment";
 import { unavailable } from "../../config";
 
-// import { img_300, unavailable } from "../../config/config";
+function CustomCard({ title, date, launchStatus, onCardClick, poster }) {
+  const [posterImage, setPosterImage] = useState();
+  const [status, setStatus] = useState("");
 
-function CustomCard({ title, date, type, onCardClick }) {
+  // USEEFFECT TO CHECK AVALABILTITY OF DATA
+
+  useEffect(() => {
+    if (poster) {
+      setPosterImage(poster);
+    } else {
+      setPosterImage(unavailable);
+    }
+
+    if (launchStatus) {
+      setStatus("Success");
+    } else {
+      setStatus("Fail");
+    }
+  }, []);
+
+  // RETRUN
+
   return (
     <fragment>
       <Card
@@ -23,11 +41,9 @@ function CustomCard({ title, date, type, onCardClick }) {
       >
         <CardMedia
           component="img"
-          alt="green iguana"
+          alt={title}
           height="200"
-          image={unavailable}
-
-          // image={poster ? `${poster}` : unavailable}
+          image={posterImage}
         />
 
         <CardContent>
@@ -43,8 +59,18 @@ function CustomCard({ title, date, type, onCardClick }) {
             marginTop="10px"
             textTransform="capitalize"
           >
-            <div>{type && type}</div>
-            <div>{date && moment(date).format("dd.mm.yyyy")}</div>
+            <div>
+              <div>
+                <b>Launch Status</b>
+              </div>
+              <div>{status}</div>
+            </div>
+            <div>
+              <div>
+                <b>Launch Date</b>
+              </div>
+              <div>{date && moment(date).format("DD-MMM-yyyy")}</div>
+            </div>
           </Typography>
         </CardContent>
       </Card>

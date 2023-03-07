@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Dialog, Grid, Box, Paper } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ToastMessage from "../toastMessage";
@@ -10,6 +10,8 @@ import Overview from "./overview";
 import YouTubeButton from "./youtubeButton";
 import { viewHandler } from "../../utils";
 
+// STYLING FOR ITEM INTO INTEM
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "white",
   ...theme.typography.body2,
@@ -19,6 +21,20 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function CustomModal({ openModal, closeModalHandler, selectedCardData }) {
+  const [posterImage, setPosterImage] = useState();
+
+  // HANDLER FOR CHECKING THE AVAIBILITY FO DATA
+
+  useEffect(() => {
+    if (selectedCardData?.links?.patch?.small) {
+      setPosterImage(selectedCardData?.links?.patch?.small);
+    } else {
+      setPosterImage(unavailable);
+    }
+  }, [openModal]);
+
+  // HANDLER FOR YOUTUBE
+
   const youTubeHandler = () => {
     if (selectedCardData?.links?.youtube_id) {
       window.open(
@@ -28,6 +44,8 @@ function CustomModal({ openModal, closeModalHandler, selectedCardData }) {
       viewHandler("Not available on YouTube");
     }
   };
+
+  // RETURN
 
   return (
     <Dialog
@@ -49,17 +67,13 @@ function CustomModal({ openModal, closeModalHandler, selectedCardData }) {
           }}
         >
           <Grid item xs={12} sm={4} textAlign="center">
-            <img
-              src={unavailable}
-              // src={selectedCardData?.links?.patch?.small}
-              alt={selectedCardData?.name}
-            />
+            <img src={posterImage} alt={selectedCardData?.name} />
           </Grid>
           <Grid item xs={12} sm={7}>
             <Item>
               <Heading selectedCardData={selectedCardData} />
               <Item>
-                <Overview description={selectedCardData?.details} />
+                <Overview selectedCardData={selectedCardData} />
               </Item>
             </Item>
           </Grid>

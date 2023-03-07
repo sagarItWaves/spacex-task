@@ -2,7 +2,6 @@ import React from "react";
 import { Typography, Pagination } from "@mui/material";
 
 function CustomPagination({ pages, page, handleChange }) {
-  console.log("pages==>", pages);
   return (
     <Typography
       variant="h6"
@@ -13,8 +12,14 @@ function CustomPagination({ pages, page, handleChange }) {
       width="100%"
       paddingBottom="10px"
       paddingTop="20px"
+      color="white"
     >
-      <Pagination count={pages} page={page} onChange={handleChange} />
+      <Pagination
+        count={pages}
+        page={page}
+        onChange={handleChange}
+        sx={{ button: { color: "#ffffff", backgroundColor: "black" } }}
+      />
     </Typography>
   );
 }

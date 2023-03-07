@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
 
 function Header() {
   return (
@@ -22,7 +23,10 @@ function Header() {
         bgcolor="#02545E"
         sx={{ textAlign: { xs: "center" } }}
       >
-        SPACE X
+        <RocketLaunchIcon style={{ marginRight: "20px" }} />
+        <i style={{ marginRight: "10px", color: "black" }}>SPACEX</i>
+        INFORMATION CENTER
+        <RocketLaunchIcon style={{ marginLeft: "20px" }} />
       </Typography>
     </div>
   );
