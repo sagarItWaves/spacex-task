@@ -8,7 +8,7 @@ function NoDataFound() {
       <Typography
         variant="h6"
         component="h6"
-        color={COLOR_CODE.WHITE}
+        color={COLOR_CODE.GRAY}
         fontWeight="500"
         display="flex"
         justifyContent="center"

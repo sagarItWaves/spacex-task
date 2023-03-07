@@ -9,7 +9,6 @@ import CustomPagination from "../../components/customPagination";
 import CustomModal from "../../components/CustomModal";
 import Header from "../../components/header";
 import SearchInput from "../../components/searchInput";
-import { IMAGES } from "../../constant/assest";
 import NoDataFound from "../../components/noDataFound";
 import FilterRow from "../../components/filterRow";
 import BottomFilterRow from "../../components/bottomFilterRow";
@@ -194,7 +193,6 @@ function DashBoard() {
   return (
     <div
       style={{
-        backgroundImage: `url(${IMAGES.BACKGROUND_IMAGE})`,
         minHeight: "100vh",
         backgroundSize: "cover",
       }}

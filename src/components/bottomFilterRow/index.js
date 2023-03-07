@@ -26,14 +26,14 @@ function BottomFilterRow({
           width: "50%",
           display: "flex",
           justifyContent: "center",
-          color: COLOR_CODE.WHITE,
+          color: COLOR_CODE.BLACK,
         }}
         value="start"
         control={
           <Checkbox
             onChange={upcomingEventHandler}
             checked={upComingEvent}
-            style={{ color: COLOR_CODE.WHITE }}
+            style={{ color: COLOR_CODE.BLACK }}
           />
         }
         label={<b>{FILTER_LABEL.UPCOMMING_LAUNCH}</b>}
@@ -51,9 +51,10 @@ function BottomFilterRow({
             height: "31px",
             backgroundColor: COLOR_CODE.WHITE,
             color: COLOR_CODE.BLACK,
+            border: `1px solid ${COLOR_CODE.BLACK}`,
             "&:hover": {
-              color: COLOR_CODE.WHITE,
-              border: `1px solid ${COLOR_CODE.WHITE}`,
+              color: COLOR_CODE.BLACK,
+              border: `1px solid ${COLOR_CODE.BLACK}`,
             },
           }}
           onClick={resetFilterHandler}

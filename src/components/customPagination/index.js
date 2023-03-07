@@ -21,8 +21,7 @@ function CustomPagination({ pages, page, handleChange }) {
         onChange={handleChange}
         sx={{
           button: {
-            color: COLOR_CODE.WHITE,
-            backgroundColor: COLOR_CODE.BLACK,
+            color: COLOR_CODE.BLACK,
           },
         }}
       />

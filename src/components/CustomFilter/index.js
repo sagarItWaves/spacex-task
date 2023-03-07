@@ -9,7 +9,7 @@ function CustomFilter({ filterArray, onChange, filterValue }) {
       component="h6"
       fontWeight="400"
       display="flex"
-      color={COLOR_CODE.WHITE}
+      color={COLOR_CODE.BLACK}
       justifyContent="center"
       alignItems="center"
       width="100%"
@@ -34,8 +34,8 @@ function CustomFilter({ filterArray, onChange, filterValue }) {
               marginRight: "10px",
               backgroundColor:
                 filterValue === value?.value
-                  ? COLOR_CODE.WHITE
-                  : COLOR_CODE.GRAY,
+                  ? COLOR_CODE.GRAY
+                  : COLOR_CODE.WHITE,
               border: `1px solid ${COLOR_CODE.BLACK}`,
             }}
           />

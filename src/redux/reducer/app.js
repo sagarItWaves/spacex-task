@@ -8,11 +8,13 @@ const initialState = {
   totalPages: null,
 };
 
+// App slice reducer
 export const appSlice = createSlice({
   name: "app",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    // Builder chaning
     builder
       .addCase(fetchData.pending, (state) => {
         state.loading = true;
