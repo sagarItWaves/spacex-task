@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import { BASE_URL, ENDPOINTS } from "./endPoints";
 
 export const apiClient = axios.create({

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@mui/material";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import { BUTTTON_LBAEL, COLOR_CODE } from "../../../constant";
 
 function YouTubeButton({ youTubeHandler }) {
   return (
@@ -8,16 +9,16 @@ function YouTubeButton({ youTubeHandler }) {
       variant="contained"
       component="label"
       sx={{
-        bgcolor: "#FF0000",
+        bgcolor: COLOR_CODE.RED_YOU_TUBE,
         "&:hover": {
-          bgcolor: "white",
-          color: "#2f2f2f",
+          bgcolor: COLOR_CODE.WHITE,
+          color: COLOR_CODE.BLACK,
         },
       }}
       onClick={youTubeHandler}
     >
       <PhotoCamera style={{ marginRight: "10px" }} />
-      Watch on YouTube
+      {BUTTTON_LBAEL.YOU_TUBE}
     </Button>
   );
 }

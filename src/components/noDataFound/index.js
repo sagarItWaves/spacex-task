@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "@mui/material";
+import { NO_DATA_FOUND, COLOR_CODE } from "../../constant";
 
 function NoDataFound() {
   return (
@@ -7,7 +8,7 @@ function NoDataFound() {
       <Typography
         variant="h6"
         component="h6"
-        color="white"
+        color={COLOR_CODE.WHITE}
         fontWeight="500"
         display="flex"
         justifyContent="center"
@@ -20,7 +21,7 @@ function NoDataFound() {
         marginTop="20px"
         sx={{ textAlign: { xs: "center" } }}
       >
-        NO DATA FOUND
+        {NO_DATA_FOUND}
       </Typography>
     </div>
   );

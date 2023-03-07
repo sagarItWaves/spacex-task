@@ -2,13 +2,15 @@ import React from "react";
 import { Typography } from "@mui/material";
 import ArticleIcon from "@mui/icons-material/Article";
 import moment from "moment";
+import { MODAL_LABEL, COLOR_CODE } from "../../../constant";
 
 function Overview({ selectedCardData }) {
-  // HADLER FOR OPEN A ARTICE TO NEW PAGE
+  // HANDLER FOR OPEN A ARTICE TO NEW PAGE
   const articleHandler = () => {
     window.open(selectedCardData?.links?.article);
   };
-  // HADLER FOR OPEN A wikipedia TO NEW PAGE
+
+  // HANDLER FOR OPEN A wikipedia TO NEW PAGE
 
   const wikipediaHandler = () => {
     window.open(selectedCardData?.links?.wikipedia);
@@ -17,7 +19,7 @@ function Overview({ selectedCardData }) {
     <Typography
       variant="h7"
       component="h7"
-      color="#2f2f2f"
+      color={COLOR_CODE.BLACK}
       fontWeight="500"
       display="flex"
       justifyContent="flex-start"
@@ -31,7 +33,7 @@ function Overview({ selectedCardData }) {
 
       {selectedCardData?.date_utc && (
         <Typography marginTop="10px" textTransform="capitalize">
-          <b> Last Launch: </b>
+          <b> {MODAL_LABEL.LAST_LAUNCH}</b>
           {moment(selectedCardData?.date_utc).format("DD-MMM-yyyy")}
         </Typography>
       )}
@@ -39,10 +41,11 @@ function Overview({ selectedCardData }) {
       {selectedCardData?.failures?.[0] && (
         <fragment>
           <Typography marginTop="10px">
-            <b>Fail Count:</b> {selectedCardData?.failures?.[0]?.time}
+            <b>{MODAL_LABEL.FAIL_COUNT}</b>{" "}
+            {selectedCardData?.failures?.[0]?.time}
           </Typography>
           <Typography marginTop="10px" textTransform="capitalize">
-            <b> Fail Reason: </b>
+            <b>{MODAL_LABEL.FAIL_REASON}</b>
             {selectedCardData?.failures?.[0]?.reason}
           </Typography>
         </fragment>
@@ -55,7 +58,7 @@ function Overview({ selectedCardData }) {
           display="flex"
           alignItems="center"
         >
-          <b> Read Article: </b>
+          <b> {MODAL_LABEL.ARTICLE}</b>
           <ArticleIcon style={{ cursor: "pointer" }} onClick={articleHandler} />
         </Typography>
       )}
@@ -67,7 +70,7 @@ function Overview({ selectedCardData }) {
           display="flex"
           alignItems="center"
         >
-          <b> Read Wikipedia: </b>
+          <b>{MODAL_LABEL.WIKIPEDIA} </b>
           <ArticleIcon
             style={{ cursor: "pointer" }}
             onClick={wikipediaHandler}

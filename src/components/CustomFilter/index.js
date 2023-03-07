@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Chip } from "@mui/material";
+import { FILTER_LABEL, COLOR_CODE } from "../../constant";
 
 function CustomFilter({ filterArray, onChange, filterValue }) {
   return (
@@ -8,7 +9,7 @@ function CustomFilter({ filterArray, onChange, filterValue }) {
       component="h6"
       fontWeight="400"
       display="flex"
-      color="white"
+      color={COLOR_CODE.WHITE}
       justifyContent="center"
       alignItems="center"
       width="100%"
@@ -21,7 +22,7 @@ function CustomFilter({ filterArray, onChange, filterValue }) {
         component="h6"
         fontSize="14px"
       >
-        <b>Filter By:</b>
+        <b>{FILTER_LABEL.FITER_BY}</b>
       </Typography>
       {filterArray.map((value) => {
         return (
@@ -31,8 +32,11 @@ function CustomFilter({ filterArray, onChange, filterValue }) {
             variant={filterValue === value?.value ? "outlined" : "filled"}
             style={{
               marginRight: "10px",
-              backgroundColor: filterValue === value?.value ? "gray" : "white",
-              border: "1px solid black",
+              backgroundColor:
+                filterValue === value?.value
+                  ? COLOR_CODE.GRAY
+                  : COLOR_CODE.WHITE,
+              border: `1px solid ${COLOR_CODE.BLACK}`,
             }}
           />
         );

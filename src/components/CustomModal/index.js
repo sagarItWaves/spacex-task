@@ -9,11 +9,15 @@ import Heading from "./heading";
 import Overview from "./overview";
 import YouTubeButton from "./youtubeButton";
 import { viewHandler } from "../../utils";
+import { COLOR_CODE } from "../../constant";
 
 // STYLING FOR ITEM INTO INTEM
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "white",
+  backgroundColor:
+    theme.palette.mode === COLOR_CODE.DARK
+      ? COLOR_CODE.LIGHT
+      : COLOR_CODE.WHITE,
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",

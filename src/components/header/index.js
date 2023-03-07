@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import { HEADER, COLOR_CODE } from "../../constant";
 
 function Header() {
   return (
@@ -9,7 +10,7 @@ function Header() {
         variant="h1"
         component="h1"
         fontSize="200%"
-        color="white"
+        color={COLOR_CODE.WHITE}
         fontWeight="400"
         display="flex"
         justifyContent="center"
@@ -20,12 +21,14 @@ function Header() {
         position="fixed"
         zIndex="1"
         width="100%"
-        bgcolor="#02545E"
+        bgcolor={COLOR_CODE.DARK_BLUE}
         sx={{ textAlign: { xs: "center" } }}
       >
         <RocketLaunchIcon style={{ marginRight: "20px" }} />
-        <i style={{ marginRight: "10px", color: "black" }}>SPACEX</i>
-        INFORMATION CENTER
+        <i style={{ marginRight: "10px", color: "black" }}>
+          {HEADER.ORGANISATION}
+        </i>
+        {HEADER.INFORMATION_CENTER}
         <RocketLaunchIcon style={{ marginLeft: "20px" }} />
       </Typography>
     </div>

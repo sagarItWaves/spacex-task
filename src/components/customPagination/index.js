@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Pagination } from "@mui/material";
+import { COLOR_CODE } from "../../constant";
 
 function CustomPagination({ pages, page, handleChange }) {
   return (
@@ -12,13 +13,18 @@ function CustomPagination({ pages, page, handleChange }) {
       width="100%"
       paddingBottom="10px"
       paddingTop="20px"
-      color="white"
+      color={COLOR_CODE.WHITE}
     >
       <Pagination
         count={pages}
         page={page}
         onChange={handleChange}
-        sx={{ button: { color: "#ffffff", backgroundColor: "black" } }}
+        sx={{
+          button: {
+            color: COLOR_CODE.WHITE,
+            backgroundColor: COLOR_CODE.BLACK,
+          },
+        }}
       />
     </Typography>
   );

@@ -194,7 +194,7 @@ function DashBoard() {
   return (
     <div
       style={{
-        backgroundImage: `url(${IMAGES.BACKGROUND_IMAGE1})`,
+        backgroundImage: `url(${IMAGES.BACKGROUND_IMAGE})`,
         minHeight: "100vh",
       }}
     >
@@ -214,49 +214,54 @@ function DashBoard() {
         enableReset={enableReset}
         resetFilterHandler={resetFilterHandler}
       />
-      <Grid
-        container
-        spacing={2}
-        direction="row"
-        justify="flex-start"
-        alignItems="flex-start"
-      >
-        {appState?.map((data) => {
-          return (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={3}
-              key={data?.id}
-              textAlign="-webkit-center"
-            >
-              <CustomCard
-                onCardClick={(event) => onCardClick(event, data)}
-                poster={data?.links?.patch?.small}
-                title={data?.name}
-                date={data?.date_local}
-                details={data?.details}
-                launchStatus={data?.success}
-              />
-            </Grid>
-          );
-        })}
-        {!loading && appState?.length === 0 && <NoDataFound />}
-        {!!loading && (
-          <Grid row width="100%" display="flex" justifyContent="center">
-            <CircularProgress />
-          </Grid>
-        )}
 
-        {appState?.length > 0 && (
-          <CustomPagination
-            pages={pages}
-            page={pageNum}
-            handleChange={handleChange}
-          />
-        )}
-      </Grid>
+      {!loading && appState?.length > 0 && (
+        <Grid
+          container
+          spacing={2}
+          direction="row"
+          justify="flex-start"
+          alignItems="flex-start"
+        >
+          {appState?.map((data) => {
+            return (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={3}
+                key={data?.id}
+                textAlign="-webkit-center"
+              >
+                <CustomCard
+                  onCardClick={(event) => onCardClick(event, data)}
+                  poster={data?.links?.patch?.small}
+                  title={data?.name}
+                  date={data?.date_local}
+                  details={data?.details}
+                  launchStatus={data?.success}
+                />
+              </Grid>
+            );
+          })}
+        </Grid>
+      )}
+
+      {!loading && appState?.length === 0 && <NoDataFound />}
+      {!!loading && (
+        <Grid row width="100%" display="flex" justifyContent="center">
+          <CircularProgress />
+        </Grid>
+      )}
+
+      {!loading && appState?.length > 0 && (
+        <CustomPagination
+          pages={pages}
+          page={pageNum}
+          handleChange={handleChange}
+        />
+      )}
+
       <CustomModal
         openModal={openModal}
         closeModalHandler={closeModalHandler}

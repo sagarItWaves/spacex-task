@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 import moment from "moment";
 import { unavailable } from "../../config";
+import { FILTER_LABEL, COLOR_CODE } from "../../constant";
 
 function CustomCard({ title, date, launchStatus, onCardClick, poster }) {
   const [posterImage, setPosterImage] = useState();
@@ -31,10 +32,10 @@ function CustomCard({ title, date, launchStatus, onCardClick, poster }) {
         sx={{
           maxWidth: 250,
           cursor: "pointer",
-          bgcolor: "gray",
+          bgcolor: COLOR_CODE.GRAY,
           "&:hover": {
-            bgcolor: "#ffffff",
-            color: "#2f2f2f",
+            bgcolor: COLOR_CODE.WHITE,
+            color: COLOR_CODE.BLACK,
           },
         }}
         onClick={onCardClick}
@@ -47,13 +48,17 @@ function CustomCard({ title, date, launchStatus, onCardClick, poster }) {
         />
 
         <CardContent>
-          <Typography variant="body2" color="black" fontWeight="bold">
+          <Typography
+            variant="body2"
+            color={COLOR_CODE.BLACK}
+            fontWeight="bold"
+          >
             {title ? title.substring(0, 20) : "No Name"}
           </Typography>
 
           <Typography
             variant="body2"
-            color="black"
+            color={COLOR_CODE.BLACK}
             display="flex"
             justifyContent="space-between"
             marginTop="10px"
@@ -61,13 +66,13 @@ function CustomCard({ title, date, launchStatus, onCardClick, poster }) {
           >
             <div>
               <div>
-                <b>Launch Status</b>
+                <b>{FILTER_LABEL.LAUNCH_STATUS}</b>
               </div>
               <div>{status}</div>
             </div>
             <div>
               <div>
-                <b>Launch Date</b>
+                <b>{FILTER_LABEL.LAUNCH_DATE}</b>
               </div>
               <div>{date && moment(date).format("DD-MMM-yyyy")}</div>
             </div>

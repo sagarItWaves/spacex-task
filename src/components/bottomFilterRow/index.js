@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, FormControlLabel, Checkbox, Button } from "@mui/material";
+import { FILTER_LABEL, COLOR_CODE } from "../../constant";
 
 function BottomFilterRow({
   upcomingEventHandler,
@@ -25,17 +26,17 @@ function BottomFilterRow({
           width: "50%",
           display: "flex",
           justifyContent: "center",
-          color: "white",
+          color: COLOR_CODE.WHITE,
         }}
         value="start"
         control={
           <Checkbox
             onChange={upcomingEventHandler}
             checked={upComingEvent}
-            style={{ color: "white" }}
+            style={{ color: COLOR_CODE.WHITE }}
           />
         }
-        label={<b>Up Comming Launch</b>}
+        label={<b>{FILTER_LABEL.UPCOMMING_LAUNCH}</b>}
         labelPlacement="start"
       />
       <Grid
@@ -48,12 +49,12 @@ function BottomFilterRow({
           variant="outlined"
           sx={{
             height: "31px",
-            backgroundColor: "white",
-            color: "black",
+            backgroundColor: COLOR_CODE.WHITE,
+            color: COLOR_CODE.BLACK,
           }}
           onClick={resetFilterHandler}
         >
-          Reset
+          {FILTER_LABEL.RESET}
         </Button>
       </Grid>
     </Grid>
