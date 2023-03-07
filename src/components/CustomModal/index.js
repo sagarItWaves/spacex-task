@@ -57,6 +57,12 @@ function CustomModal({ openModal, closeModalHandler, selectedCardData }) {
       maxWidth="lg"
       open={openModal}
       onClose={closeModalHandler}
+      PaperProps={{
+        sx: {
+          width: "50%",
+          maxHeight: 500,
+        },
+      }}
     >
       <ToastMessage />
       <TopBar closeModalHandler={closeModalHandler} />

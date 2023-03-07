@@ -51,6 +51,10 @@ function BottomFilterRow({
             height: "31px",
             backgroundColor: COLOR_CODE.WHITE,
             color: COLOR_CODE.BLACK,
+            "&:hover": {
+              color: COLOR_CODE.WHITE,
+              border: `1px solid ${COLOR_CODE.WHITE}`,
+            },
           }}
           onClick={resetFilterHandler}
         >

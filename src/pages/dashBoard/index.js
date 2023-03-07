@@ -196,6 +196,7 @@ function DashBoard() {
       style={{
         backgroundImage: `url(${IMAGES.BACKGROUND_IMAGE})`,
         minHeight: "100vh",
+        backgroundSize: "cover",
       }}
     >
       <Header />

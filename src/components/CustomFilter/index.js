@@ -34,8 +34,8 @@ function CustomFilter({ filterArray, onChange, filterValue }) {
               marginRight: "10px",
               backgroundColor:
                 filterValue === value?.value
-                  ? COLOR_CODE.GRAY
-                  : COLOR_CODE.WHITE,
+                  ? COLOR_CODE.WHITE
+                  : COLOR_CODE.GRAY,
               border: `1px solid ${COLOR_CODE.BLACK}`,
             }}
           />
